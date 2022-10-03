@@ -818,6 +818,30 @@
     <!--==================== smtpsJS.com ====================-->
     <script src="https://smtpjs.com/v3/smtp.js"></script>
 
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCac_oQNqvh6_IyFAJK5AL8QFjmJe1ZRgY",
+          authDomain: "personal-website-naomi.firebaseapp.com",
+          projectId: "personal-website-naomi",
+          storageBucket: "personal-website-naomi.appspot.com",
+          messagingSenderId: "654531613479",
+          appId: "1:654531613479:web:ed5b4188b06ac82bc10f02",
+          measurementId: "G-RBW8SQWLNT"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+      </script>
+
 </body>
 
 </html>
