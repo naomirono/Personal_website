@@ -187,16 +187,17 @@ img {
 }
 .nav_logo{
     font-family: cursive;
+    color: var(--first-color); 
 }
 
 .nav_logo, .nav_toggle{
-    color: var(--title-color);
+    
     font-weight: var(--font-medium);
 
 }
 
 .nav_logo:hover{
-    color: var(--first-color);
+    color: var(--first-color-lighter);
 }
 .nav_toggle{
     font-size: 1.1rem;
@@ -308,7 +309,7 @@ img {
  }
  .home_img:hover{
      transform: scale(1.07);
-     transition: 1s ease-out;
+     transition: 0.5s ease-out;
  }
 
  .home_data{
@@ -402,10 +403,12 @@ img {
 
 /*==================== ABOUT ====================*/
 .about_img{
-    width: 200px;
+    width: 400%;
+
     border-radius: .5rem;
     justify-self: center;
     align-self: center;
+    
 }
 
 .about_description{
@@ -464,6 +467,7 @@ img {
 
 .skills_title{
     font-size: var(--h3-font-size);
+    
 }
 
 .skills_subtitle{
@@ -488,7 +492,8 @@ img {
 
 .skills_name{
     font-size: var(--normal-font-size);
-    font-weight: var(--font-medium);
+    font-weight: var(--font-semi-bold);
+    
 }
 .skills_bar, 
 .skills_percentage{
@@ -506,37 +511,6 @@ img {
     background-color: var(--first-color);
 }
 
-.skills_html{
-    width: 90%;
-}
-
-.skills_css{
-    width: 70%;
-}
-
-.skills_js{
-    width: 50%;
-}
-
-.skills_react{
-    width: 30%;
-}
-
-.skills_php{
-    width: 50%;
-}
-
-.skills_node{
-    width: 50%;
-}
-
-.skills_firebase{
-    width: 50%;
-}
-
-.skills_python{
-    width: 50%;
-}
 
 .skills_close .skills_list{
     height: 0;
@@ -632,13 +606,16 @@ img {
     position: relative;
     background-color: var(--container-color);
     padding: 3.5rem .5rem 1.25rem 1.5rem;
-    border-radius: .25rem;
+    border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0,0,0, .15);
     transition: .3s;
+    
 
 }
 .services_content:hover{
     box-shadow: 0 4px 8px rgba(0,0,0, .15);
+    background: var(--first-color-lighter);
+    
 }
 .services_icon{
     display: block;
@@ -732,6 +709,10 @@ visibility:visible ;
     width: 265px;
     border-radius: .5rem;
     justify-self: center;
+    transition: 0.5s;
+}
+.portfolio_img:hover{
+    transform: scale(1.1);
 }
 .portfolio_title{
     font-size: var(--h3-font-size);

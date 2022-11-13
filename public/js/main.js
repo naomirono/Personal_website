@@ -112,23 +112,70 @@ modalCloses.forEach((modalClose)=>{
   
 
 /*==================== ContactMe ====================*/
-const nameInput = document.getElementById("name");
-const email= document.getElementById("email");
-const project= document.getElementById("project");
-const messageInput= document.getElementById("message");
-const success = document.getElementById("success");
-const errorNodes = document.querySelectorAll(".error");
+
+// Validate Data
+function validateForm(){
+    clearMessages();
+   
+
+    let errorFlag = false;
+
+    if(nameInput.value.length < 1){
+        errorNodes[0].innerText = "Name cannot be blank";
+        nameInput.classList.add("error-border");
+        errorFlag = true;
+    }
+    if(!emailIsValid(email.value)){
+        errorNodes[1].innerText = "Invalid email address";
+        email.classList.add("error-border");
+        errorFlag = true;
+    }
+    if(messagesInput.value.length < 1){
+        errorNodes[2].innerText = "Please enter message";
+        messagesInput.classList.add("error-border");
+        errorFlag = true;
+
+    }
+    if(!errorFlag){
+        success.innerText= "Success!"
+    }
+
+}
+//Clear error/ Success messages
+function clearMessages(){
+    for(let i = 0; i < errorNodes.length; i++){
+        errorNodes[i].innerText = "";
+    }
+    nameInput.classList.remove("error-border");
+    email.classList.remove("error-border");
+}
+//Check if Email is Valid
+function emailIsValid(){
+    let pattern = /\S+@\S+\.\S+/;
+    return pattern.test(email);
+}
 
 function sendEmail() {
+    const nameInput = document.getElementById("name");
+    const email= document.getElementById("email");
+    const project= document.getElementById("project");
+    const messageInput= document.getElementById("message");
+    const success = document.getElementById("success");
+    const errorNodes = document.querySelectorAll(".error");
+    const body = "Name: " + nameInput.value + 
+                 "<br> Email: " + email.value +
+                 "<br> Project: " + project.value +
+                 "<br> Message: " + messageInput.value
+
     Email.send({
-        SecureToken : "16a81c9a-e74e-4732-93d6-82529bc4e753",
+        // SecureToken : "56c8be67-ec41-4c49-9e6f-3508609e6025",
+        Host : "smtp.elasticemail.com",
+    Username : "naomirono1454@gmail.com",
+    Password : "828B493B87914D117D45211041B5CBA62320",
         To : 'naomirono1454@gmail.com',
-        From : document.getElementById("email").value,
-        Subject : "Naomi's Website",
-        Body : "Name: " + nameInput.value + 
-        "<br> Email: " + email.value +
-        "<br> Project: " + project.value +
-        "<br> Message: " + messageInput.value
+        From : email.value,
+        Subject : "New Message From Naomi's Website",
+        Body : body
     }).then(
       message => alert("Thank You For Contacting Naomi")
     );
@@ -137,6 +184,7 @@ function sendEmail() {
 // E0C25DC91C7C0C796117AC36787E348838EA
 // smtp.elasticemail.com
 // 2525
+//828B493B87914D117D45211041B5CBA62320
 
 /*==================== SCROLL SECTIONS ACTIVE LINK ====================*/
 const sections = document.querySelectorAll('section[id]')
